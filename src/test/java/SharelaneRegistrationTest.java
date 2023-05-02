@@ -1,17 +1,12 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SharelaneRegistrationTest {
-    WebDriver driver;
+public class SharelaneRegistrationTest extends BaseTest {
 
     @Test
     public void fiveDigitsZipCodeTest() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        driver = new ChromeDriver();
         // Open register page https://www.sharelane.com/cgi-bin/register.py
         driver.get("https://www.sharelane.com/cgi-bin/register.py");
         // Input five digits to zip code field
