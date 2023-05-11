@@ -20,4 +20,8 @@ public class TestDataGenerator {
     public static String getPassword() {
         return faker.bothify("#####???");
     }
+
+    public static String getZipCode() {
+        return faker.numerify("#####");
+    }
 }
