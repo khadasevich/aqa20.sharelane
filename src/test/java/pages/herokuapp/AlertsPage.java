@@ -1,6 +1,7 @@
 package pages.herokuapp;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,6 +26,12 @@ public class AlertsPage {
 
     public void clickButton() {
         driver.findElement(CONFIRM_ALERT).click();
+    }
+
+    public void jsClickButton() {
+        WebElement confirmAlert = driver.findElement(CONFIRM_ALERT);
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].click()", confirmAlert);
     }
 
     public String acceptAlert() {

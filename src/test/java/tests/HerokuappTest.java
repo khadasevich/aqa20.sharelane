@@ -65,4 +65,11 @@ public class HerokuappTest extends BaseTest {
         byte[] screenshotInBytes = takesScreenshot.getScreenshotAs(OutputType.BYTES);
         Files.write(Paths.get("src/test/resources/screenshot.png"), screenshotInBytes);
     }
+
+    @Test
+    public void jsClickTest() {
+        AlertsPage alertsPage = new AlertsPage(driver);
+        alertsPage.openAlertsPage();
+        alertsPage.jsClickButton();
+    }
 }
