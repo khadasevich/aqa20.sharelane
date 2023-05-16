@@ -21,4 +21,11 @@ public class HerokuappTest extends BaseTest {
         String text = alertsPage.acceptAlert();
         alertsPage.dismissAlert();
     }
+
+    @Test
+    public void switchToNewWindow() {
+        AlertsPage alertsPage = new AlertsPage(driver);
+        alertsPage.openAlertsPage();
+        String text = alertsPage.switchToWindowAndGetText();
+    }
 }
