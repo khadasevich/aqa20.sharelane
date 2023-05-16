@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.herokuapp.AlertsPage;
+import pages.herokuapp.FileUploadPage;
 import pages.herokuapp.FramePage;
 
 public class HerokuappTest extends BaseTest {
@@ -27,5 +28,12 @@ public class HerokuappTest extends BaseTest {
         AlertsPage alertsPage = new AlertsPage(driver);
         alertsPage.openAlertsPage();
         String text = alertsPage.switchToWindowAndGetText();
+    }
+
+    @Test
+    public void uploadPhotoTest() {
+        FileUploadPage fileUploadPage = new FileUploadPage(driver);
+        fileUploadPage.openPage();
+        fileUploadPage.uploadPhoto();
     }
 }
