@@ -1,7 +1,13 @@
 package tests;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.Test;
 import pages.herokuapp.*;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class HerokuappTest extends BaseTest {
 
@@ -43,9 +49,13 @@ public class HerokuappTest extends BaseTest {
     }
 
     @Test
-    public void dragAndDropTest(){
+    public void dragAndDropTest() throws IOException {
         DragAndDropPage dragAndDropPage = new DragAndDropPage(driver);
         dragAndDropPage.openPage();
         dragAndDropPage.dragAndDrop();
+        //сделать скриншот
+        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        byte[] screenshotInBytes = takesScreenshot.getScreenshotAs(OutputType.BYTES);
+        Files.write(Paths.get("src/test/resources/screenshot.png"), screenshotInBytes);
     }
 }
