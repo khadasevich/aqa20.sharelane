@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.herokuapp.AlertsPage;
+import pages.herokuapp.DropdownPage;
 import pages.herokuapp.FileUploadPage;
 import pages.herokuapp.FramePage;
 
@@ -35,5 +36,12 @@ public class HerokuappTest extends BaseTest {
         FileUploadPage fileUploadPage = new FileUploadPage(driver);
         fileUploadPage.openPage();
         fileUploadPage.uploadPhoto();
+    }
+
+    @Test
+    public void selectTest() {
+        DropdownPage dropdownPage = new DropdownPage(driver);
+        dropdownPage.openPage();
+        String option = dropdownPage.selectOptionOne();
     }
 }
