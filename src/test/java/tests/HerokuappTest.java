@@ -35,6 +35,13 @@ public class HerokuappTest extends BaseTest {
     }
 
     @Test
+    public void switchToNewWindowAndWaitTest() {
+        AlertsPage alertsPage = new AlertsPage(driver);
+        alertsPage.openAlertsPage();
+        String text = alertsPage.switchToWindowAndWaitForText();
+    }
+
+    @Test
     public void uploadPhotoTest() {
         FileUploadPage fileUploadPage = new FileUploadPage(driver);
         fileUploadPage.openPage();

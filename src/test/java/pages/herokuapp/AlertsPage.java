@@ -3,8 +3,11 @@ package pages.herokuapp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class AlertsPage {
     private WebDriver driver;
@@ -46,6 +49,20 @@ public class AlertsPage {
         WebElement header = driver.findElement(NEW_PAGE_HEADER);
         //после работы с новой страницей необходимо возвращаться назад
         driver.switchTo().window(windows.stream().toList().get(0));
+        return header.getText();
+    }
+
+    public String switchToWindowAndWaitForText() {
+        driver.findElement(FOOTER_LINK).click();
+        Set<String> windows = driver.getWindowHandles();
+        driver.switchTo().window(windows.stream().toList().get(1));
+        //При работе с explicit wait необходимо обнулить implicit wait
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(NEW_PAGE_HEADER));
+        WebElement header = driver.findElement(NEW_PAGE_HEADER);
+        //После работы с элементом возвращаем implicit wait
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return header.getText();
     }
 
