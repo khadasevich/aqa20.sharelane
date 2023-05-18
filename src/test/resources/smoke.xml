@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test">
+<!--    Listener слушает статус теста-->
+    <listeners>
+        <listener class-name="utilities.AnnotationTransformer"/>
+    </listeners>
+    <test name="Herokuapp test">
+        <classes>
+            <class name="tests.HerokuappTest"/>
+        </classes>
+    </test>
+    <test name="Sharelane test">
+        <classes>
+            <class name="tests.RegistrationFluentTest"/>
+            <class name="tests.SharelaneRegistrationTest"/>
+            <class name="tests.ZipCodeBusinessPomTest"/>
+            <class name="tests.ZipCodeClassicalPomTest"/>
+            <class name="tests.ZipCodeFactoryTest"/>
+            <class name="tests.ZipCodeLoadableTest"/>
+        </classes>
+    </test>
+</suite>

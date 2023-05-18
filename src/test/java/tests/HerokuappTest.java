@@ -2,8 +2,10 @@ package tests;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.herokuapp.*;
+import utilities.Retry;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,7 +13,7 @@ import java.nio.file.Paths;
 
 public class HerokuappTest extends BaseTest {
 
-    @Test
+    @Test(priority = 1, invocationCount = 10)
     public void iframeBodyTest() {
         FramePage framePage = new FramePage(driver);
         framePage.openPage();
@@ -19,29 +21,30 @@ public class HerokuappTest extends BaseTest {
         String textInsideOfHeader = framePage.getTextFromHeader();
     }
 
-    @Test
+    @Test(priority = 2)
     public void alertTest() {
         AlertsPage alertsPage = new AlertsPage(driver);
         alertsPage.openAlertsPage();
         String text = alertsPage.acceptAlert();
         alertsPage.dismissAlert();
+        Assert.assertEquals(text, "I am a JS Confir");
     }
 
-    @Test
+    @Test(enabled = false)
     public void switchToNewWindow() {
         AlertsPage alertsPage = new AlertsPage(driver);
         alertsPage.openAlertsPage();
         String text = alertsPage.switchToWindowAndGetText();
     }
 
-    @Test
+    @Test(priority = 3)
     public void switchToNewWindowAndWaitTest() {
         AlertsPage alertsPage = new AlertsPage(driver);
         alertsPage.openAlertsPage();
         String text = alertsPage.switchToWindowAndWaitForText();
     }
 
-    @Test
+    @Test(description = "Upload photo test")
     public void uploadPhotoTest() {
         FileUploadPage fileUploadPage = new FileUploadPage(driver);
         fileUploadPage.openPage();
