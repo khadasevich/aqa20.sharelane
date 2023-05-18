@@ -18,6 +18,8 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"browser"})
     public void setUp(@Optional("chrome") String browser) {
+        //С помощью getProperty можно получить данные из JVM
+        System.out.println(System.getProperty("env"));
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
