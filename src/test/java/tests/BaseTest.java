@@ -5,10 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
+import utilities.TestListener;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
+@Listeners(TestListener.class)
 public class BaseTest {
     protected WebDriver driver;
 
@@ -28,5 +30,10 @@ public class BaseTest {
     @AfterSuite(alwaysRun = true)
     public void tearDown() {
         driver.quit();
+    }
+
+    public WebDriver getDriver() {
+        //Метод для получения драйвера из контекста тестов
+        return driver;
     }
 }

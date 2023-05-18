@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 
 public class HerokuappTest extends BaseTest {
 
-    @Test(priority = 1, invocationCount = 10)
+    @Test(priority = 1, invocationCount = 10, retryAnalyzer = Retry.class)
     public void iframeBodyTest() {
         FramePage framePage = new FramePage(driver);
         framePage.openPage();
