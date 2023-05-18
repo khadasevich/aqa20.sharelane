@@ -5,6 +5,8 @@
     <listeners>
         <listener class-name="utilities.AnnotationTransformer"/>
     </listeners>
+<!--    Параметры могут пригодиться если необходимо к примеру передать из сьюта какие-то данные -->
+    <parameter name="browser" value="firefox"/>
     <test name="Herokuapp test">
         <classes>
             <class name="tests.HerokuappTest"/>
