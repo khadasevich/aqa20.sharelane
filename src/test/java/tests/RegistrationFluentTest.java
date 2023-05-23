@@ -2,8 +2,6 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.fluentpages.SignUpFormPage;
-import pages.fluentpages.SuccessRegisterPage;
 import pages.fluentpages.ZipCodePage;
 import utilities.TestDataGenerator;
 
@@ -15,7 +13,7 @@ public class RegistrationFluentTest extends BaseTest {
         ZipCodePage zipCodePage = new ZipCodePage(driver);
         boolean isSuccessDisplayed = zipCodePage
                 .openRegisterPage()
-                .inputZipCode(TestDataGenerator.getZipCode())
+                .inputZipCode(System.getProperty("zipCode"))
                 .clickContinue()
                 .fillInFirstName(TestDataGenerator.getFirstName())
                 .fillInLastName(TestDataGenerator.getLastName())
