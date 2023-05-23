@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test" thread-count="2" parallel="tests">
+<!--    Listener слушает статус теста-->
+    <listeners>
+        <listener class-name="utilities.AnnotationTransformer"/>
+    </listeners>
+<!--    Параметры могут пригодиться если необходимо к примеру передать из сьюта какие-то данные -->
+    <parameter name="browser" value="firefox"/>
+    <test name="Sharelane test">
+        <classes>
+            <class name="tests.RegistrationFluentTest"/>
+        </classes>
+    </test>
+</suite>
