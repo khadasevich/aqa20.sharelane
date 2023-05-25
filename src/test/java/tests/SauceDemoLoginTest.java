@@ -1,10 +1,16 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.saucedemo.LoginPage;
 
+@Epic("User management")
+@Feature("Login")
+@Story("Validation")
 public class SauceDemoLoginTest extends BaseTest {
 
     @Test(dataProvider = "testData")

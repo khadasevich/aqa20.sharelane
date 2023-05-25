@@ -1,5 +1,6 @@
 package utilities;
 
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -24,6 +25,6 @@ public class TestListener implements ITestListener {
         Object currentClass = result.getInstance();
         //Приводим (cast) object к классу базового теста и получаем доступ к методам класса
         WebDriver driver = ((BaseTest) currentClass).getDriver();
-        Screenshoter.takeScreenShot(driver);
+        AllureTool.makeScreenshot(driver);
     }
 }

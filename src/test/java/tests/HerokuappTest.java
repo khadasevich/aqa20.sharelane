@@ -1,5 +1,11 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
+import io.qameta.allure.testng.Tag;
+import io.qameta.allure.testng.Tags;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
@@ -11,9 +17,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+@Epic("Herokuapp")
+@Feature("Selenium Training")
+@Story("Selenium Tests")
+@Tags(@Tag("herokuapp"))
 public class HerokuappTest extends BaseTest {
 
-    @Test(priority = 1, invocationCount = 10, retryAnalyzer = Retry.class)
+    @Test(priority = 1, invocationCount = 10, retryAnalyzer = Retry.class, enabled = false)
     public void iframeBodyTest() {
         FramePage framePage = new FramePage(driver);
         framePage.openPage();

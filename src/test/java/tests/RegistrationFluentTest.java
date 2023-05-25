@@ -7,7 +7,7 @@ import utilities.TestDataGenerator;
 
 public class RegistrationFluentTest extends BaseTest {
 
-    @Test
+    @Test(description = "Register User in the system")
     public void registrationTest() {
         String password = TestDataGenerator.getPassword();
         ZipCodePage zipCodePage = new ZipCodePage(driver);

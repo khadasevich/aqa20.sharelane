@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import static constants.PageUrls.SHARELANE_REGISTER;
 
 public class ZipCodePage extends BasePage {
-    @FindBy(id = "zip_code")
+    @FindBy(name = "zip_code")
     private WebElement zipCodeInput;
 
     @FindBy(css = "[value='Continue']")
